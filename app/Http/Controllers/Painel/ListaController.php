@@ -8,8 +8,9 @@ use App\Models\Painel\Produto;
 
 class ListaController extends Controller
 {
-    public function ver(Produto $produto){
-
+    
+    public function ver(Produto $produto)
+    {
     	$produtos = $produto->all();
 
     	return view('/Listagem/lista', compact('produtos'));
@@ -24,26 +25,25 @@ class ListaController extends Controller
 	}
 
 
-    public function update(Produto $request, $id)
+    public function update(Request $request, $id)
     {
     	$produtos = $request->all();
 
     	$produto = Produto::find($id);
 
-    	$update = $produto->update($produtos);
-
-    	$produtos->save();
-    	
+        $update = $produto->update($produtos);
     }
 
-    public function destroy($id)
+
+    public function destroy(Produto $produto)
     {
-    	$produto = Produto::find($id);
+    	$produto = Produto::delete();
 
-    	$delete = $produto->delete();
-
-    	$delete->save();
+        $delete = $produto->delete();	     
+        
+        return redirect('Listagem/excluir');
     }
+
    
 
 }

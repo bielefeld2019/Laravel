@@ -45,7 +45,7 @@
 <div class="conteudo" >
 	<table width="90%" border="0" >
 		<tr>
-			
+		
 			<td width="150"><strong><center>Nome</center></strong></td>
 			<td width="150"><strong><center>Descrição</center></strong></td>
 			<td width="120"><strong><center>Categoria</center></strong></td>
@@ -55,18 +55,21 @@
 
 		<h1>Lista de Produtos</h1>
 		
-		<a href="{{url('/cadastrar')}}" class="btn btn-outline-success"><span class="glyphicon glyphicon-plus
+		<a href="{{url('produtos/cadastrar')}}" class="btn btn-outline-success"><span class="glyphicon glyphicon-plus
 "></span>Cadastrar</a>
+
 		@foreach ($produtos as $produto)
+
 		<tr>
 			<td width="200"><center>{{$produto->nome}}</center></td>
 			<td width="200"><center>{{$produto->descricao}}</center></td>
 			<td width="200"><center>{{$produto->categoria}}</center></td>
 			<td width="220"><center>{{$produto->qntd_estoque}}</center></td>
-			<td ><a  class="btn btn-outline-warning" href="{{url('/editar', $produto->id)}}">Editar</a> <a  class="btn btn-outline-danger" href="{{url('excluir', $produto->id)}}">Excluir</a></td>
+			<td ><a  class="btn btn-outline-warning" href="{{url('produtos/editar')}}">Editar</a> <a  class="btn btn-outline-danger" href="{{url('produtos/excluir')}}" >Excluir</a></td>
 		</tr>
 
 		@endforeach
+
 	</table>
 	<br>
 	</div>
