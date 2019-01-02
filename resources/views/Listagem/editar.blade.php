@@ -5,15 +5,14 @@
 <!------ Include the above in your HEAD tag ---------->
 
 
-<form class="form-horizontal" method="POST" action="{{url('/produtos/' . $produto->id . '')}}">
+<form class="form-horizontal" method="POST" action="{{url('/produtos/'. $produto->id .'/editar')}}">
 <input name="_method" type="hidden" value="PUT">
 @csrf
-
 
 <fieldset>
 
 <!-- Form Name -->
-<legend><h1><center>Editando : {{$produto->nome}} </center></h1></legend>
+<legend><h1><center>Editando : {{$produto->nome}}</center></h1></legend>
 
 <!-- Código -->
 <div class="form-group">
