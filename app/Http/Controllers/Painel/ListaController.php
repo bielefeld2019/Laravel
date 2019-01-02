@@ -9,7 +9,7 @@ use App\Models\Painel\Produto;
 class ListaController extends Controller
 {
     
-    public function ver(Produto $produto)
+    public function index(Produto $produto)
     {
     	$produtos = $produto->all();
 
@@ -19,19 +19,35 @@ class ListaController extends Controller
 
     public function create(Request $request)
     {	
+    	return view('/Listagem/cadastro');
+	}
+
+
+    public function store(Request $request)
+    {	
     	$produtos = Produto::create($request->all());
     	
     	$produtos->save();
 	}
 
 
-    public function update(Request $request, $id)
+    public function edit($codigo)
+    {
+        $produto = Produto::find($codigo);
+
+        return view('/Listagem/editar', compact('produto'));
+    }
+
+
+    public function update(Request $request)
     {
     	$produtos = $request->all();
 
-    	$produto = Produto::find($id);
+    	$produto = Produto::find($request);
 
         $update = $produto->update($produtos);
+
+        return redirect('/produtos');
     }
 
 
@@ -40,11 +56,7 @@ class ListaController extends Controller
     	$produto = Produto::delete();
 
         $delete = $produto->delete();	     
-        
-        return redirect('Listagem/excluir');
     }
-
-   
 
 }
 

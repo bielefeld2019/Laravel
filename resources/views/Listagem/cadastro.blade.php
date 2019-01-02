@@ -5,7 +5,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<form class="form-horizontal" method="POST" action="{{url('produtos/cadastrar')}}">
+<form class="form-horizontal" method="POST" action="{{url('produtos')}}">
 @csrf
 
 
@@ -63,8 +63,8 @@
   <div class="col-md-8">
     
 
-    <button id= "btnsalvar" class="btn btn-primary" href="{{url('produtos/lista')}}"> Salvar </button>
-    <a class="btn btn-danger" id="btncancelar" href="{{url('produtos/lista')}}"> Cancelar </a>
+    <button id= "btnsalvar" class="btn btn-primary" href="{{url('produtos')}}"> Salvar </button>
+    <a class="btn btn-danger" id="btncancelar" href="{{url('produtos')}}"> Cancelar </a>
   
   </div>
 </div>

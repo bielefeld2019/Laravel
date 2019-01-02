@@ -36,8 +36,6 @@
 </head>
 <body>
 
-
-
 	<div class="menu">
 		<h1 style="color: white; margin-left: 5%;"><center>EloVerde</center></h1>
 		</div>
@@ -55,7 +53,7 @@
 
 		<h1>Lista de Produtos</h1>
 		
-		<a href="{{url('produtos/cadastrar')}}" class="btn btn-outline-success"><span class="glyphicon glyphicon-plus
+		<a href="{{url('produtos/create')}}" class="btn btn-outline-success"><span class="glyphicon glyphicon-plus
 "></span>Cadastrar</a>
 
 		@foreach ($produtos as $produto)
@@ -65,7 +63,10 @@
 			<td width="200"><center>{{$produto->descricao}}</center></td>
 			<td width="200"><center>{{$produto->categoria}}</center></td>
 			<td width="220"><center>{{$produto->qntd_estoque}}</center></td>
-			<td ><a  class="btn btn-outline-warning" href="{{url('produtos/editar')}}">Editar</a> <a  class="btn btn-outline-danger" href="{{url('produtos/excluir')}}" >Excluir</a></td>
+			<td> 
+			<a  class="btn btn-outline-warning" href="{{url('produtos/' . $produto->id . '/editar')}}" > Editar </a> 
+			<a  class="btn btn-outline-danger" href="{{url('produtos/' . $produto->id . '/excluir')}}" >Excluir </a> 
+			</td>
 		</tr>
 
 		@endforeach

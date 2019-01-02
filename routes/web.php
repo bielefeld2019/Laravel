@@ -1,27 +1,18 @@
 <?php
 
-Route::get('produtos/lista', 'Painel\ListaController@ver');
+Route::get('/produtos', 'Painel\ListaController@index');
 
-Route::post('produtos/cadastrar', 'Painel\ListaController@create');
+Route::get('/produtos/create', 'Painel\ListaController@create');
 
-Route::get('produtos/cadastrar', function () 
-{
-	return view('/Listagem/cadastro');
-});
+Route::post('/produtos', 'Painel\ListaController@store');
 
-Route::put('produtos/editar', 'Painel/ListaController@update');
+Route::get('/produtos/{codigo}/editar', 'Painel\ListaController@edit');
 
-Route::get('produtos/editar', function () 
-{	
-	return view('/Listagem/editar');
-});
+Route::put('/produtos/{codigo}', 'Painel\ListaController@update');
 
-Route::delete('produtos/excluir', 'Painel/ListaController@destroy');
+Route::delete('/produtos/{codigo}/excluir', 'Painel\ListaController@destroy');
 
-Route::delete('produtos/excluir', function () 
-{	
-	return view('/Listagem/excluir');
-});
+
 
 
 
