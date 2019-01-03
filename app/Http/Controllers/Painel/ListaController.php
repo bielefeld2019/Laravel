@@ -39,7 +39,7 @@ class ListaController extends Controller
     }
 
 
-    public function update(Request $request)
+    public function update(Produto $request)
     {
     	$produtos = $request->all();
 
@@ -59,5 +59,3 @@ class ListaController extends Controller
     }
 
 }
-
-

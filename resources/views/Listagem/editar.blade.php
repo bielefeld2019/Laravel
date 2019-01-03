@@ -5,13 +5,12 @@
 <!------ Include the above in your HEAD tag ---------->
 
 
-<form class="form-horizontal" method="POST" action="{{url('/produtos/'. $produto->id .'/editar')}}">
-<input name="_method" type="hidden" value="PUT">
+<form class="form-horizontal" method="POST" action="{{url('/produtos/'. $produto->id .'')}}">
+@method('PUT')
 @csrf
 
 <fieldset>
 
-<!-- Form Name -->
 <legend><h1><center>Editando : {{$produto->nome}}</center></h1></legend>
 
 <!-- Código -->
@@ -19,7 +18,7 @@
   <label class="col-md-4 control-label" for="id">Cód. Produto : </label>  
   <div class="col-md-2">
   <input id="id" name="id" type="hidden" value="{{$produto->id}}" class="form-control input-md">
-    
+
   </div>
 </div>
 
@@ -45,7 +44,6 @@
   <label class="col-md-4 control-label" for="categoria">Categoria : </label>  
   <div class="col-md-6">
   <input id="categoria" name="categoria" type="text" value="{{$produto->categoria}}" class="form-control input-md" required="">
-    
   </div>
 </div>
 
@@ -69,4 +67,3 @@
  
 </fieldset>
 </form>
-
