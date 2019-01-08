@@ -8,12 +8,12 @@ class Produto extends Model
 {
 	public $timestamps = false; 
 
-	protected $fillable = [
-		
-		
+	protected $fillable = 
+	[
 		'nome',
 		'descricao',
 		'categoria',
-		'qntd_estoque' ];
+		'qntd_estoque' 
+	];
 
 }

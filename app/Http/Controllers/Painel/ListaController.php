@@ -27,8 +27,19 @@ class ListaController extends Controller
     {	
     	$produtos = Produto::create($request->all());
     	
-    	$produtos->save();
+        $produtos->save();
+        
+        return redirect('produtos');
+
 	}
+
+
+    public function snow($codigo)
+    {
+        $produto = Produto::find($codigo);
+        
+        return view('Listagem/excluir', compact('produto'));
+    }
 
 
     public function edit($codigo)
@@ -39,23 +50,26 @@ class ListaController extends Controller
     }
 
 
-    public function update(Produto $request)
+    public function update(Request $request, $codigo)
     {
     	$produtos = $request->all();
 
-    	$produto = Produto::find($request);
+    	$produto = Produto::find($codigo);
 
         $update = $produto->update($produtos);
 
-        return redirect('/produtos');
+        return redirect('produtos');
+        
     }
 
 
-    public function destroy(Produto $produto)
+    public function destroy($codigo)
     {
-    	$produto = Produto::delete();
+    	$produto = Produto::find($codigo);
 
-        $delete = $produto->delete();	     
+        $delete = $produto->delete($codigo);
+    
+        return redirect('produtos');
     }
 
 }

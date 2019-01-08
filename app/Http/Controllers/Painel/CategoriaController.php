@@ -4,21 +4,21 @@ namespace App\Http\Controllers\Painel;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Painel\User;
+use App\Models\Painel\Categoria;
 
 
-class LoginController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index(Categoria $categoria)
     {
-        $users = $user->all();
+        $categorias = $categoria->all();
         
-        return view('/Login/lista', compact('users'));
+        return view('/Categoria/lista', compact('categorias'));
     }
 
     /**
@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
     public function create(Request $request)
     {
-        return view('/Login/cadastro');
+        return view('/Categoria/cadastro');
     }
 
     /**
@@ -39,11 +39,12 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        $users = User::create($request->all());
+        $categorias = Categoria::create($request->all());
     	
-    	$users->save();
+        $categorias->save();
         
-        return redirect('users');
+        return redirect('categoria');
+
     }
 
     /**
@@ -54,9 +55,9 @@ class LoginController extends Controller
      */
     public function show($codigo)
     {
-        $user = User::find($codigo);
+        $categoria = Categoria::find($codigo);
         
-        return view('Login/excluir', compact('user'));
+        return view('Categoria/excluir', compact('categoria'));
     }
 
     /**
@@ -67,9 +68,9 @@ class LoginController extends Controller
      */
     public function edit($codigo)
     {
-        $user = User::find($codigo);
+        $categoria = Categoria::find($codigo);
 
-        return view('/Login/editar', compact('user'));
+        return view('/Categoria/editar', compact('categoria'));
     }
 
     /**
@@ -81,13 +82,13 @@ class LoginController extends Controller
      */
     public function update(Request $request, $codigo)
     {
-        $users = $request->all();
+        $categorias = $request->all();
 
-    	$user = User::find($codigo);
+    	$categoria = Categoria::find($codigo);
 
-        $update = $user->update($users);
+        $update = $categoria->update($categorias);
       
-        return redirect('users');
+        return redirect('categoria');
     }
 
     /**
@@ -98,10 +99,10 @@ class LoginController extends Controller
      */
     public function destroy($codigo)
     {
-        $user = User::find($codigo);
+        $categoria = Categoria::find($codigo);
 
-        $delete = $user->delete($codigo);
+        $delete = $categoria->delete($codigo);
 
-        return redirect('users');
+        return redirect('categoria');
     }
 }

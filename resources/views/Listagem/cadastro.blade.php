@@ -38,10 +38,15 @@
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="categoria">Categoria : </label>  
+<a href="{{url('categoria/create')}}"><span class="glyphicon glyphicon-plus"></span></a>
+  <label class="col-md-4 control-label" for="categoria">Categoria :   </label>  
   <div class="col-md-6">
-  <input id="categoria" name="categoria" type="text" placeholder="Nome da Categoria" class="form-control input-md" required="">
-    
+  <select id="categoria" name="categoria" class="form-control" >
+      <option value="Eletrônicos">Eletrônicos</option>
+      <option value="Roupas">Roupas</option>
+      <option value="Limpeza">Limpeza</option>
+      <option value="Material Escolar">Material Escolar</option>
+    </select>    
   </div>
 </div>
 

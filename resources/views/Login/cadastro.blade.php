@@ -4,16 +4,18 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<form class="form-horizontal" method="POST" action="{{url('login')}}">
+<form class="form-horizontal" method="POST" action="{{url('/users')}}">
+@csrf
+
 
 <fieldset>
 
 <!-- Form Name -->
-<legend><h1><center>Cadastro de Usuários</center></h1></legend>
+<legend><h1><center>Cadastro de Usuário</center></h1></legend>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="txtcodigo_produto_id">Cód. Usuários : </label>  
+  <label class="col-md-4 control-label" for="txtcodigo_produto_id">Cód. Usuário : </label>  
   <div class="col-md-2">
   <input id="id" name="id" type="hidden" placeholder="Código" class="form-control input-md">
     
@@ -38,9 +40,20 @@
 </div>
 
 <div class="form-group">
+  <label class="col-md-4 control-label" for="sexo">Sexo :</label>
+  <div class="col-md-4">
+    <select id="sexo" name="sexo" class="form-control">
+      <option value="Não informado">Não informado</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Feminino">Feminino</option>
+    </select>
+  </div>
+</div>
+
+<div class="form-group">
   <label class="col-md-4 control-label" for="telefone">Telefone : </label>
   <div class="col-md-4">
-   <input id="telefone" name="telefone" type="number" placeholder="Telefone do Usuário" class="form-control input-md" required="">
+   <input id="telefone" name="telefone" type="text" placeholder="Telefone do Usuário" class="form-control input-md" required="">
   </div>
 </div>
 
@@ -52,15 +65,11 @@
   </div>
 </div>
 
-
 <div class="form-group">
   <label class="col-md-4 control-label" for="btnsalvar"></label>
   <div class="col-md-8">
-    
-
-    <button id= "btnsalvar" class="btn btn-primary" href="{{url('login')}}"> Salvar </button>
-    <a class="btn btn-danger" id="btncancelar" href="{{url('login')}}"> Cancelar </a>
-  
+    <button id= "btnsalvar" class="btn btn-primary"  href="{{url('/users')}}"> Salvar </button>
+    <a class="btn btn-danger" id="btncancelar" href="{{url('/users')}}"> Cancelar </a>
   </div>
 </div>
 

@@ -13,9 +13,10 @@
 		<div class="col-md-3 ">
 		     <div class="list-group ">
              <h1> <center>EloVerde</center></h1>
-              <a href="{{url('produtos')}}" class="list-group-item list-group-item-action active">Produtos</a>
+              <a href="{{url('produtos')}}" class="list-group-item list-group-item-action active">Categoria</a>
+              <a href="{{url('produtos')}}" class="list-group-item list-group-item-action">Produtos</a> 
               <a href="{{url('users')}}" class="list-group-item list-group-item-action">Usuários</a>
-              <a href="{{url('categoria')}}" class="list-group-item list-group-item-action">Categoria</a>       
+                    
             </div> 
 		</div>
 		<div class="col-md-9">
@@ -23,12 +24,12 @@
 		        <div class="card-body">
 		            <div class="row">
 		                <div class="col-md-2 border-right">
-	                    <h4>PRODUTOS</h4>
+	                    <h4>CATEGORIAS</h4>
 	                     </div>
 
 
 		                <div class="col-md-6">
-	 <a class="btn btn-sm btn-success" href="{{url('produtos/create')}}"><span class="glyphicon glyphicon-plus"></span></a>
+	 <a class="btn btn-sm btn-success" href="{{url('categoria/create')}}"><span class="glyphicon glyphicon-plus"></span></a>
 		                </div>
 		                
 		            </div>
@@ -41,25 +42,18 @@
                                       
                                     </th>  
                                     <th>Nome</th>
-                                    <th>Descrição</th>
-                                    <th>Categoria</th>
-                                    <th>Quantidade</th>
 									<th>Ações</th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr>
-                                  @foreach ($produtos as $produto)  
+                                  @foreach ($categorias as $categoria)  
 								  <td></td>
-                                    <td><small>{{$produto->nome}}</small></td>
-                                    <td><small>{{$produto->descricao}}</small></td>
-                                    <td><small>{{$produto->categoria}}</small></td>
-                                    <td><small>{{$produto->qntd_estoque}}</small></td>
-                                    
+                                    <td><small>{{$categoria->nome}}</small></td>
                                     <td>
-                                        <a href="{{url('produtos/' . $produto->id . '/editar')}}"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="{{url('categoria/' . $categoria->id . '/editar')}}"><i class="fa fa-pencil-square-o"></i></a>
                 
-                                        <a href="{{url('produtos/' . $produto->id . '')}}"><i class="fa fa-trash"></i></a>
+                                        <a href="{{url('categoria/' . $categoria->id . '/excluir')}}"><i class="fa fa-trash"></i></a>
                                     </td>
                                   </tr>
                                   @endforeach
